@@ -10,10 +10,14 @@ export default function App() {
     setHabilitado(true);
   }
 
+  function desahabilitaJogo() {
+    setHabilitado(false);
+  }
+
   return (
     <>
       <Jogo funcao={habilitaJogo} habilitado={habilitado} />
-      <Letras habilitado={habilitado} />
+      <Letras habilitado={habilitado} funcao={desahabilitaJogo} />
     </>
   );
 }

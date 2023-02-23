@@ -5,6 +5,12 @@ function selecionaPalavra() {
     return palavras[indice].split("");
 }
 
+function exibeUnderline() {
+    let underline = "";
+    palavra.map((letra, indice) => indice !== palavra.length - 1 ? underline += "_ " : underline += "_");
+    return underline;
+}
+
 const palavra = selecionaPalavra();
 
 export default function Jogo(props) {
@@ -14,7 +20,7 @@ export default function Jogo(props) {
             <div>
                 <button disabled={props.habilitado} onClick={props.funcao}>Escolher Palavra</button>
                 <div>
-                    {props.habilitado ? palavra.map((letra, indice) => indice !== palavra.length - 1 ? "_ " : "_") : ""}
+                    {props.habilitado ? exibeUnderline() : ""}
                 </div>
             </div>
         </div>
