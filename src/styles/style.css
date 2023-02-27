@@ -95,3 +95,11 @@
     background-color: #E1ECF4;
     color: #39739D;
 }
+
+.fim-ganho {
+    color: #27AE60;
+}
+
+.fim-perdido {
+    color: #FF0000;
+}
