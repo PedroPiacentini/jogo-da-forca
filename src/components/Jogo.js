@@ -1,26 +1,16 @@
-import palavras from "../palavras";
-
-function selecionaPalavra() {
-    const indice = Math.floor(Math.random() * (palavras.length + 1));
-    return palavras[indice].split("");
-}
-
-function exibeUnderline() {
-    let underline = "";
-    palavra.map((letra, indice) => indice !== palavra.length - 1 ? underline += "_ " : underline += "_");
-    return underline;
-}
-
-const palavra = selecionaPalavra();
-
 export default function Jogo(props) {
+    const palavra = props.palavra;
+    let exibido = "";
+    if (palavra === props.underline) {
+        exibido = props.underline.join(" ");
+    }
     return (
         <div className="jogo">
-            <img src="assets/forca0.png" />
+            <img src={`assets/forca${props.imagem}.png`} />
             <div>
-                <button disabled={props.habilitado} onClick={props.funcao}>Escolher Palavra</button>
+                <button disabled={props.estadoJogo !== "finalizado" ? props.habilitado : true} onClick={props.funcao}>Escolher Palavra</button>
                 <div>
-                    {props.habilitado ? exibeUnderline() : ""}
+                    {props.habilitado ? props.underline.join(" ") : exibido}
                 </div>
             </div>
         </div>
