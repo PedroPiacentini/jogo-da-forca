@@ -12,8 +12,8 @@ export default function Jogo(props) {
             <img data-test="game-image" src={`assets/forca${props.imagem}.png`} />
             <div>
                 <button data-test="choose-word" disabled={props.habilitado} onClick={props.funcao}>Escolher Palavra</button>
-                <div className={props.estadoJogo}>
-                    <span data-test="word">{props.habilitado && props.estadoJogo === "jogando" ? props.underline.join(" ") : exibido}</span>
+                <div data-test="word" className={props.estadoJogo}>
+                    <span>{props.habilitado && props.estadoJogo === "jogando" ? props.underline.join(" ") : exibido}</span>
                 </div>
             </div>
         </div>
